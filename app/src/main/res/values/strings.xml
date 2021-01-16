@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Kuliah Yuk</string>
+    <string name="add_university">Tambah Sekolah</string>
+    <string name="add_criteria">Masukan Kriteria</string>
+
+    <string-array name="type">
+        <item>Manfaat</item>
+        <item>Biaya</item>
+    </string-array>
+
+</resources>
