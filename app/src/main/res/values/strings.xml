@@ -2,6 +2,10 @@
     <string name="app_name">Kuliah Yuk</string>
     <string name="add_university">Tambah Sekolah</string>
     <string name="add_criteria">Masukan Kriteria</string>
+    <string name="delete">Delete</string>
+    <string name="edit">Edit</string>
+
+    <string name="admob_id">ca-app-pub-9947358019764828~1126514687</string>
 
     <string-array name="type">
         <item>Manfaat</item>

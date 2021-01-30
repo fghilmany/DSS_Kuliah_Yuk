@@ -10,6 +10,12 @@ import kotlin.math.pow
 
 class AlternativeViewModel (private val dataRepository: DataRepository): ViewModel(){
 
+    private var id = 0
+
+    fun setId(id: Int){
+        this.id = id
+    }
+
     fun insertAlternative(alternative: AlternativeEntity) = GlobalScope.launch {
         dataRepository.insertAlternative(alternative)
     }
@@ -39,6 +45,10 @@ class AlternativeViewModel (private val dataRepository: DataRepository): ViewMod
         this.countWeight = countWeight
     }
 
+    fun getAlternativeValueById() = dataRepository.getAlternativeValueById(id).asLiveData()
+
+    fun gerResult() = dataRepository.getResult().asLiveData()
+
     fun countSVector(value: Double, scaleWeight: Double){
         this.value = value
         this.scaleWeight = scaleWeight
@@ -54,10 +64,10 @@ class AlternativeViewModel (private val dataRepository: DataRepository): ViewMod
     fun eachWeight() = weight/countWeight
 
     fun preferenceValue(): Double {
-        if (state == "Manfaat"){
-            return value.pow(scaleWeight)
+        return if (state == "Manfaat"){
+            value.pow(scaleWeight)
         }else{
-            return value.pow(-scaleWeight)
+            value.pow(-scaleWeight)
         }
 
     }

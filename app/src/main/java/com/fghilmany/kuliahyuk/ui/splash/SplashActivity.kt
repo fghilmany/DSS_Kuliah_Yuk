@@ -27,6 +27,7 @@ class SplashActivity : AppCompatActivity() {
                 } finally {
                     val intent = Intent(this@SplashActivity, DashboardActivity::class.java)
                     startActivity(intent)
+                    finish()
                 }
             }
         }

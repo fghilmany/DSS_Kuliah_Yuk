@@ -1,5 +1,6 @@
 package com.fghilmany.kuliahyuk.ui.dashboard
 
+import android.R.attr
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
@@ -8,6 +9,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.fghilmany.kuliahyuk.R
 import com.fghilmany.kuliahyuk.core.data.source.local.entity.ResultEntity
 import kotlinx.android.synthetic.main.item_dashboard.view.*
+import java.text.DecimalFormat
+import kotlin.math.pow
+import kotlin.math.roundToInt
 
 
 class DashboardAdapter(private val listener: (ResultEntity) -> (Unit)) :
@@ -41,7 +45,14 @@ class DashboardAdapter(private val listener: (ResultEntity) -> (Unit)) :
         @SuppressLint("SetTextI18n", "UseCompatLoadingForDrawables")
         fun bind(result: ResultEntity, listener: (ResultEntity) -> Unit, position: Int) {
             with(itemView) {
-                tv_result.text = "Hasil Hitungan: "+result.result
+                val resultToDecimal = DecimalFormat("#.##")
+                val resultPercent = resultToDecimal.format(result.result)
+
+                val angkaSignifikan = 2
+                val temp = 10.0.pow(angkaSignifikan.toDouble())
+                val y = (result.result * temp).roundToInt().toDouble() / temp
+
+                tv_result.text = "Hasil Hitungan: ${(y*100).toInt()}%"
                 tv_position_item.text = position.toString()
                 if (position <= 3){
                     //iv_position.setBackgroundResource(R.drawable.ic_circle)
@@ -50,6 +61,10 @@ class DashboardAdapter(private val listener: (ResultEntity) -> (Unit)) :
                     iv_position.setImageDrawable(resources.getDrawable(R.drawable.ic_circle))
                 }
                 tv_university_name.text = result.name_university
+
+                setOnClickListener {
+                    listener(result)
+                }
             }
         }
 

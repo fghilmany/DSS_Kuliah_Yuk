@@ -26,6 +26,9 @@ interface IDataRepository {
 
     fun getAlternativeValue(): Flow<List<AlternativeValueEntity>>
 
+    fun getAlternativeValueById(id: Int): Flow<List<AlternativeValueEntity>>
+
+
     suspend fun insertAlternativeValue(alternative: AlternativeValueEntity)
 
     suspend fun deleteAllAlternativeValue()
@@ -38,16 +41,22 @@ interface IDataRepository {
 
     suspend fun deleteResult()
 
+    suspend fun deleteResultById(id: Int)
+
     fun getPreference(): Flow<List<PreferenceEntity>>
 
     suspend fun insertPreference(result: PreferenceEntity)
 
     suspend fun deletePreference()
 
+    suspend fun deletePreferenceById(id: Int)
+
     fun getPreferenceValue(): Flow<List<PreferenceValueEntity>>
 
     suspend fun insertPreferenceValue(result: PreferenceValueEntity)
 
     suspend fun deletePreferenceValue()
+
+    suspend fun deletePreferenceValueById(id: Int)
 
 }

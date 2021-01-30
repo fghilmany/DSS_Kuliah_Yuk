@@ -34,6 +34,7 @@ interface KuliahDao {
     @Query("DELETE FROM alternative_entity WHERE id == :id")
     suspend fun deleteAlternativeById(id: Int)
 
+
    /* //alternative with criteria
     @Transaction
     @Query("SELECT * FROM alternative_entity, criteria_entity")
@@ -42,6 +43,9 @@ interface KuliahDao {
     //value
     @Query("SELECT * FROM value_entity")
     fun getAlternativeValue(): Flow<List<AlternativeValueEntity>>
+
+    @Query("SELECT * FROM value_entity WHERE id_alternative = :id")
+    fun getAlternativeValueById(id: Int): Flow<List<AlternativeValueEntity>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertAlternativeValue(alternativeValue: AlternativeValueEntity)
@@ -62,7 +66,10 @@ interface KuliahDao {
     @Query("DELETE FROM result_entity")
     suspend fun deleteResult()
 
-    //result
+    @Query("DELETE FROM result_entity WHERE id == :id")
+    suspend fun deleteResultById(id: Int)
+
+    //preference
     @Query("SELECT * FROM preference_entity")
     fun getPreference(): Flow<List<PreferenceEntity>>
 
@@ -72,7 +79,10 @@ interface KuliahDao {
     @Query("DELETE FROM preference_entity")
     suspend fun deletePreference()
 
-    //result
+    @Query("DELETE FROM preference_entity WHERE id == :id")
+    suspend fun deletePreferenceById(id: Int)
+
+    //preferenceValue
     @Query("SELECT * FROM preference_value_entity")
     fun getPreferenceValue(): Flow<List<PreferenceValueEntity>>
 
@@ -81,4 +91,7 @@ interface KuliahDao {
 
     @Query("DELETE FROM preference_value_entity")
     suspend fun deletePreferenceValue()
+
+    @Query("DELETE FROM preference_value_entity WHERE id == :id")
+    suspend fun deletePreferenceValueById(id: Int)
 }

@@ -26,6 +26,8 @@ class LocalDatasource (private val kuliahDao: KuliahDao){
 
     fun getAlternativeValue(): Flow<List<AlternativeValueEntity>> = kuliahDao.getAlternativeValue()
 
+    fun getAlternativeValueById(id: Int): Flow<List<AlternativeValueEntity>> = kuliahDao.getAlternativeValueById(id)
+
     suspend fun insertAlternativeValue(alternativeValue: AlternativeValueEntity) = kuliahDao.insertAlternativeValue(alternativeValue)
 
     suspend fun deleteAllAlternativeValue() = kuliahDao.deleteAllAlternativeValue()
@@ -38,15 +40,21 @@ class LocalDatasource (private val kuliahDao: KuliahDao){
 
     suspend fun deleteResult() = kuliahDao.deleteResult()
 
+    suspend fun deleteResultById(id: Int) = kuliahDao.deleteResultById(id)
+
     fun getPreference(): Flow<List<PreferenceEntity>> = kuliahDao.getPreference()
 
     suspend fun insertPreference(result: PreferenceEntity) = kuliahDao.insertPreference(result)
 
     suspend fun deletePreference() = kuliahDao.deletePreference()
 
+    suspend fun deletePreferenceById(id: Int) = kuliahDao.deletePreferenceById(id)
+
     fun getPreferenceValue(): Flow<List<PreferenceValueEntity>> = kuliahDao.getPreferenceValue()
 
     suspend fun insertPreferenceValue(result: PreferenceValueEntity) = kuliahDao.insertPreferenceValue(result)
 
     suspend fun deletePreferenceValue() = kuliahDao.deletePreferenceValue()
+
+    suspend fun deletePreferenceValueById(id: Int) = kuliahDao.deletePreferenceValueById(id)
 }

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginHorizontal="4dp"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_marginVertical="4dp">
+
+    <TextView
+        android:id="@+id/tv_criteria_name"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:textColor="@color/color_text_black"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Jarak:" />
+
+    <TextView
+        android:id="@+id/tv_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="8dp"
+        android:textColor="@color/color_text_black"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_criteria_name"
+        app:layout_constraintStart_toEndOf="@+id/tv_criteria_name"
+        app:layout_constraintTop_toTopOf="@+id/tv_criteria_name"
+        tools:text="20" />
+
+    <TextView
+        android:id="@+id/tv_criteria_unit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:textColor="@color/color_text_black"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_criteria_name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/tv_value"
+        app:layout_constraintTop_toTopOf="@+id/tv_criteria_name"
+        tools:text="Kilometer" />
+
+    <TextView
+        android:id="@+id/tv_bobot_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="8dp"
+        android:textColor="@color/color_text_black"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_criteria_name"
+        android:text="Bobot:" />
+
+    <TextView
+        android:id="@+id/tv_weight_criteria"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="8dp"
+        android:textColor="@color/color_text_black"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_bobot_name"
+        app:layout_constraintStart_toEndOf="@+id/tv_bobot_name"
+        app:layout_constraintTop_toTopOf="@+id/tv_bobot_name"
+        tools:text="5" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginTop="8dp"
+        android:background="#BABABA"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_weight_criteria" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -42,6 +42,9 @@ class DataRepository (
     override fun getAlternativeValue(): Flow<List<AlternativeValueEntity>> =
         localDatasource.getAlternativeValue()
 
+    override fun getAlternativeValueById(id: Int): Flow<List<AlternativeValueEntity>> =
+        localDatasource.getAlternativeValueById(id)
+
     override suspend  fun insertAlternativeValue(alternative: AlternativeValueEntity) =
         localDatasource.insertAlternativeValue(alternative)
 
@@ -60,15 +63,20 @@ class DataRepository (
     override suspend fun deleteResult() =
         localDatasource.deleteResult()
 
+    override suspend fun deleteResultById(id: Int) =
+        localDatasource.deleteResultById(id)
+
     override fun getPreference(): Flow<List<PreferenceEntity>> =
         localDatasource.getPreference()
-
 
     override suspend fun insertPreference(result: PreferenceEntity) =
         localDatasource.insertPreference(result)
 
     override suspend fun deletePreference() =
         localDatasource.deletePreference()
+
+    override suspend fun deletePreferenceById(id: Int) =
+        localDatasource.deletePreferenceById(id)
 
     override fun getPreferenceValue(): Flow<List<PreferenceValueEntity>> =
         localDatasource.getPreferenceValue()
@@ -78,4 +86,7 @@ class DataRepository (
 
     override suspend fun deletePreferenceValue() =
         localDatasource.deletePreferenceValue()
+
+    override suspend fun deletePreferenceValueById(id: Int) =
+        localDatasource.deletePreferenceValueById(id)
 }

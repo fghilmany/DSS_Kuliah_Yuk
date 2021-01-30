@@ -75,4 +75,7 @@ dependencies {
 
     // Timber
     implementation 'com.jakewharton.timber:timber:4.7.1'
+
+    //play service for admob
+    implementation 'com.google.android.gms:play-services-ads:19.7.0'
 }

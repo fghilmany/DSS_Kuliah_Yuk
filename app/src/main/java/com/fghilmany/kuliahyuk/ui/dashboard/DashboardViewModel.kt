@@ -37,8 +37,6 @@ class DashboardViewModel (private val dataRepository: DataRepository): ViewModel
         this.totalPreferenceValue = totalPreferenceValue
     }
 
-    fun getAlternative() = dataRepository.getAlternative().asLiveData()
-
     fun getCriteria() = dataRepository.getCriteria().asLiveData()
 
     fun getAlternativeValue() = dataRepository.getAlternativeValue().asLiveData()
